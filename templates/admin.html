@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Admin Dashboard 🔐</h2>
+
+
+<h3>All Users</h3>
+
+{% for user in users %}
+
+<div class="blog-card">
+
+<p>
+<b>Username:</b> {{ user.username }}
+</p>
+
+<p>
+<b>Email:</b> {{ user.email }}
+</p>
+
+</div>
+
+{% endfor %}
+
+
+<hr>
+
+
+<h3>All Blogs</h3>
+
+
+{% for blog in blogs %}
+
+<div class="blog-card">
+
+<h3>{{ blog.title }}</h3>
+
+<p>{{ blog.content }}</p>
+
+<p>
+Written by: {{ blog.username }}
+</p>
+
+
+<a href="/delete/{{ blog.id }}">
+    <button>Delete Blog 🗑️</button>
+</a>
+
+
+</div>
+
+{% endfor %}
+
+
+<br>
+
+<a href="/dashboard">
+    Back to Dashboard
+</a>
+
+
+</div>
+
+</body>
+</html>

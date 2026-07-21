@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Welcome {{ username }}</h2>
+
+
+<a href="/profile">
+    <button>My Profile 👤</button>
+</a>
+
+{% if username == "Admin" %}
+
+<br><br>
+
+<a href="/admin">
+    <button>Admin Panel 🔐</button>
+</a>
+
+{% endif %}
+
+<br><br>
+
+
+<a href="/create">
+    <button>Create New Blog</button>
+</a>
+
+
+<h3>My Blogs</h3>
+
+
+{% for blog in blogs %}
+
+<div class="blog-card">
+
+<h3>{{ blog.title }}</h3>
+
+<p>{{ blog.content }}</p>
+
+
+<a href="/edit/{{ blog.id }}">
+    <button>Edit</button>
+</a>
+
+
+<a href="/delete/{{ blog.id }}">
+    <button>Delete</button>
+</a>
+
+
+</div>
+
+{% endfor %}
+
+
+<br>
+
+<a href="/blogs">
+    View Public Blogs
+</a>
+
+<br><br>
+
+<a href="/logout">
+    Logout
+</a>
+
+
+</div>
+
+</body>
+</html>
